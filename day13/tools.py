@@ -51,12 +51,26 @@ def fold(points: Set[Tuple[int, int]], instruction: str) -> Set[Tuple[int, int]]
 def display(points: Set[Tuple[int, int]]) -> None:
     mx = max(p[0] for p in points)
     my = max(p[1] for p in points)
-    grid = np.full((mx+1, my+1), False, dtype=bool)
-    for p in points:
-        grid[p] = True
+    if False:
+        grid = np.full((mx+1, my+1), False, dtype=bool)
+        for p in points:
+            grid[p] = True
 
-    for line in grid.T:
-        print(*("O" if dot else " " for dot in line), sep='')
+        for line in grid.T:
+            print(*("O" if dot else " " for dot in line), sep='')
+    else:
+        import board
+        b = board.Board((mx+1, my+1))
+        for p in points:
+            b[p] = 'O'
+        b.draw(use_borders=False)
+
+        b = board.Board((mx+1, my+1))
+        b.populate(
+                ['#'] * len(points),
+                coord_iterable=points,
+                )
+        b.draw(use_borders=False)
 
 
 
