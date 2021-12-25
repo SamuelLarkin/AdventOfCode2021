@@ -1,0 +1,28 @@
+w = current_input_number
+x
+y
+z
+
+inp w
+
+mul x 0  x = 0
+add x z  x = z
+mod x 26  x %= 26   # Make sure it isn't bigger than 26 aka alphabet size?
+div z 1  # Is this a no op?
+
+>add x 10
+
+eql x w  is x = x == w
+eql x 0  is x = x != w
+mul y 0   y = 0
+add y 25  y = 25
+mul y x   y = 25 if x != w else y = 0
+add y 1   y = 26 if x != w else y = 1
+mul z y
+mul y 0   y = 0
+add y w   y = w
+
+>add y 0
+
+mul y x
+add z y
