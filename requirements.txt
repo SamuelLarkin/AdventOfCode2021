@@ -5,4 +5,5 @@ networkx==2.6.3
 numpy==1.21.4
 pudb==2021.2.2
 pytest==6.2.5
+pytest-pudb==0.7.0
 scipy==1.7.3
